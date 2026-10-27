@@ -52,39 +52,8 @@ required.
 
 ### Simplified Block Diagram
 
-``` text
-                 +-----------------------------------+
-                 |          8086 MICROPROCESSOR     |
-                 |                                   |
-Memory / I/O <-->+-----------------------------------+<--> System Bus
-                 |       Bus Interface Unit (BIU)    |
-                 |  +-----------------------------+  |
-                 |  | Segment Registers            |  |
-                 |  | CS, DS, SS, ES               |  |
-                 |  +-----------------------------+  |
-                 |  | Instruction Pointer (IP)     |  |
-                 |  +-----------------------------+  |
-                 |  | 6-byte Instruction Queue     |  |
-                 |  +-----------------------------+  |
-                 |  | Address Generation / Bus     |  |
-                 |  | Control                      |  |
-                 |  +---------------+-------------+  |
-                 |                  |                |
-                 |       Instruction/Data Interface  |
-                 |                  |                |
-                 |       Execution Unit (EU)         |
-                 |  +-----------------------------+  |
-                 |  | Instruction Decoder &       |  |
-                 |  | Control Circuitry           |  |
-                 |  +-----------------------------+  |
-                 |  | ALU                         |  |
-                 |  +-----------------------------+  |
-                 |  | AX, BX, CX, DX               |  |
-                 |  | SP, BP, SI, DI               |  |
-                 |  | Flag Register                |  |
-                 |  +-----------------------------+  |
-                 +-----------------------------------+
-```
+<img width="802" height="831" alt="image" src="https://github.com/user-attachments/assets/dd3bac51-8db3-4566-b7c3-3f16df61c53e" />
+
 
 ### Working Principle
 
@@ -166,6 +135,21 @@ Write an 8086 assembly language program to exchange the contents of two
 
 ### Assembly Program
 
+```asm
+MOV AX, 1234H
+MOV [2000H], AX
+
+MOV AX, 5678H
+MOV [2002H], AX
+
+MOV AX, [2000H]
+MOV BX, [2002H]
+
+MOV [2000H], BX
+MOV [2002H], AX
+
+HLT
+```
  
 
 ### Expected Result
@@ -191,7 +175,11 @@ Write an 8086 assembly language program to exchange the contents of two
 7.  Record the observed results and compare them with the expected
     results.
 ## Screenshot of the results 
+Partb)
+<img width="295" height="131" alt="image" src="https://github.com/user-attachments/assets/a18d8448-2655-48ec-a751-c98470cd2ce3" />
 
+Part c)
+<img width="290" height="136" alt="image" src="https://github.com/user-attachments/assets/cfd1adc7-ae5c-4cfb-a5c4-c501c8135aa4" />
 
 
 ## Result
